@@ -1,0 +1,344 @@
+:root {
+    --primary: #EA40A4;
+    --business: #3A82EE;
+    --personal: var(--primary);
+    --light: #EEE;
+    --dark: #313204;
+    --danger: #ff5b57;
+    --gray: #888;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --business-glow: 0 0 4px rgba(58, 130, 238, 0.75);
+    --personal-glow: 0 0 4px rgba(234, 64, 164, 0.75);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    position: absolute;
+    top: 1rem;
+    right: 1.8rem;
+    /* margin-bottom: 20rem; */
+}
+
+.logo {
+    font-family: 'Lobster', cursive;
+    font-size: 30px;
+    color: fuchsia;
+    text-shadow: 1px 2px 2px black;
+    letter-spacing: 4px;
+}
+
+.app {
+    margin-top: 4rem;
+}
+
+input:not([type="radio"]):not([type="checkbox"]),
+button {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: initial;
+}
+
+body {
+    background-color: var(--light);
+    color: var(--dark);
+    user-select: none;
+}
+
+section {
+    margin: 2rem 0;
+    padding: 0 1.5rem;
+}
+
+h3 {
+    color: var(--dark);
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+h4 {
+    color: var(--gray);
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.greeting .title {
+    display: flex;
+    /* justify-content: center; */
+    align-items: flex-end;
+    gap: 0.3rem;
+}
+
+.greeting .title input {
+    flex: 1 1 0%;
+    min-width: 0;
+
+}
+
+.notice {
+    font-size: 12px;
+    color: darkblue;
+}
+
+.greeting .title input {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.create-todo input[type=text] {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+}
+
+.create-todo input[type=text]:focus {
+    box-shadow: 0 0 4px 1.4px greenyellow;
+}
+
+.options {
+    display: flex;
+    gap: 1rem;
+}
+
+.options>* {
+    flex: 1;
+}
+
+.options label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+    background-color: white;
+    padding: 0.875rem 1.5rem;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.label1 {
+    box-shadow: 0 0 4px 1px var(--business);
+}
+
+.label2 {
+    box-shadow: 0 0 4px 1px var(--personal);
+}
+
+input[type=radio] {
+    display: none;
+}
+
+.bubble {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bubble.business {
+    border: 2px solid var(--business);
+    box-shadow: var(--business-glow);
+}
+
+.bubble.personal {
+    border: 2px solid var(--personal);
+    box-shadow: var(--personal-glow);
+}
+
+.bubble.business::after {
+    content: '';
+    display: block;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    background-color: var(--business);
+    box-shadow: var(--business-glow);
+    transition: 0.2s ease-in-out;
+}
+
+.bubble.personal::after {
+    content: '';
+    display: block;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    background-color: var(--personal);
+    box-shadow: var(--personal-glow);
+    transition: 0.2s ease-in-out;
+}
+
+input:checked~.bubble::after {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: 1;
+}
+
+.create-todo input[type="submit"] {
+    display: block;
+    width: 100%;
+    border-radius: 6px;
+    padding: 0.475rem 0;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+
+    align-items: center;
+    cursor: pointer;
+    background-color: #8a2cdccd;
+    color: white;
+    transition: 0.3s ease-in-out;
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.315);
+}
+
+.create-todo input[type="submit"]:hover {
+    opacity: 0.8;
+}
+
+.todo-list .list {
+    margin: 1rem 0;
+}
+
+.todo-list .todo-item {
+    display: flex;
+    align-items: center;
+    background-color: #FFF;
+    padding: 0.8rem 1rem;
+    /* margin-bottom: 1rem; */
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.4);
+    border-radius: 6px;
+    width: 100%;
+}
+
+.todo-item label {
+    display: block;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.todo-item .todo-content {
+    flex: 1 1 0%;
+}
+
+.todo-content {
+    /* min-width: 100px; */
+    overflow: hidden;
+    /* border: 1px solid black; */
+}
+
+.todo-item .actions {
+    display: flex;
+    align-items: center;
+    gap: 0.525rem;
+    /* position: relative;
+    right: rem; */
+}
+
+.todo-item .actions button {
+    display: block;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 0.3rem;
+    color: white;
+    transition: 0.2s ease-in-out;
+}
+
+.todo-item .actions .edit {
+    background-color: var(--primary);
+}
+
+.todo-item .actions .delete {
+    background-color: var(--danger);
+    /* display: block;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 0.3rem;
+    color: white;
+    transition: 0.2s ease-in-out; */
+}
+
+.todo-item .actions button:hover {
+    opacity: 0.8;
+}
+.date{
+    text-align: right;
+    font-size: 14px;
+    color: purple;
+}
+.todo-item.done .todo-content input {
+    text-decoration: line-through;
+    color: var(--gray);
+}
+
+/* .type-check{    
+    display: inline-block;
+} */
+.parent-item {
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+}
+
+.type-todo-personal {
+    padding: 0.125rem 0.1rem;
+    font-size: 15px;
+    color: var(--personal);
+}
+
+.type-todo-business {
+    padding: 0.125rem 0.1rem;
+    font-size: 15px;
+    color: var(--business);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+        /* start at the left */
+    }
+
+    100% {
+        transform: translateX(-100%);
+        /* end at the right */
+    }
+}
+
+.word-scroll {
+    /* min-width: 100px; */
+    overflow: hidden;
+    white-space: nowrap;
+    animation: scroll 8s linear infinite;
+}
+
+footer {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.footer {
+    font-size: 13px;
+
+}
